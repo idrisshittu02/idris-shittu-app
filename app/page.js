@@ -75,7 +75,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer>
-        <p>Built by <strong>Idris Shittu</strong> · Product Team, UI/UX Design · Reports to Bryan Adamu</p>
+        <p>Built by <strong>Idris Shittu</strong> · Product Team, UI/UX Design · Reports to Babatunde</p>
       </footer>
     </>
   )
