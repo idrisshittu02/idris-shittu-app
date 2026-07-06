@@ -23,6 +23,16 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
+      - name: 📋 Print App Info
+        run: |
+          echo "================================================"
+          echo "  App Name   : ${{ vars.NEXT_PUBLIC_APP_NAME }}"
+          echo "  Owner      : ${{ vars.NEXT_PUBLIC_OWNER }}"
+          echo "  Department : ${{ vars.NEXT_PUBLIC_DEPARTMENT }}"
+          echo "  App URL    : ${{ vars.NEXT_PUBLIC_APP_URL }}"
+          echo "  Environment: ${{ vars.NODE_ENV }}"
+          echo "================================================"
+
       - name: 📦 Install dependencies
         run: npm install
 
@@ -42,5 +52,10 @@ jobs:
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: 🎉 Deployment Successful
-        run: echo "✅ Deployment to Vercel was SUCCESSFUL! Your app is live."
-        
+        run: |
+          echo "================================================"
+          echo "  ✅ DEPLOYMENT SUCCESSFUL!"
+          echo "  🌍 Live at: ${{ vars.NEXT_PUBLIC_APP_URL }}"
+          echo "  👤 Owner  : ${{ vars.NEXT_PUBLIC_OWNER }}"
+          echo "================================================"
+          
