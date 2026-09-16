@@ -1,0 +1,42 @@
+name: Check Variables
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  check-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check variables
+        env:
+          NAME1: ${{ vars.NAME1 }}
+          NAME2: ${{ vars.NAME2 }}
+          NAME3: ${{ vars.NAME3 }}
+          IP: ${{ vars.IP }}
+
+        run: |
+          if [ -z "$NAME1" ]; then
+            echo "NAME1 is null"
+          else
+            echo "NAME1: $NAME1"
+          fi
+
+          if [ -z "$NAME2" ]; then
+            echo "NAME2 is null"
+          else
+            echo "NAME2: $NAME2"
+          fi
+
+          if [ -z "$NAME3" ]; then
+            echo "NAME3 is null"
+          else
+            echo "NAME3: $NAME3"
+          fi
+
+          if [ -z "$IP" ]; then
+            echo "IP is null"
+          else
+            echo "IP: $IP"
+          fi
